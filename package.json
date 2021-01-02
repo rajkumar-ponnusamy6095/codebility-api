@@ -2,9 +2,9 @@
   "name": "codebility-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./server.js",
+    "start:dev": "nodemon ./server.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,22 @@
   },
   "homepage": "https://github.com/rajkumar-ponnusamy6095/codebility-api#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-jwt": "^6.0.0",
+    "joi": "^17.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongodb": "^3.6.3",
+    "mongoose": "^5.11.9",
+    "nodemailer": "^6.4.17",
+    "rootpath": "^0.1.2",
+    "swagger-ui-express": "^4.1.6",
+    "yamljs": "^0.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }

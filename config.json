@@ -1,0 +1,13 @@
+﻿{
+    "connectionString": "mongodb://localhost/codebility",
+    "secret": "CODEBILITY",
+    "emailFrom": "info@codebility.com",
+    "smtpOptions": {
+        "host": "smtp.ethereal.email",
+        "port": 587,
+        "auth": {
+            "user": "nya14@ethereal.email",
+            "pass": "Q4B7vVYCVHVPesu9tN"
+        }
+    }
+}
