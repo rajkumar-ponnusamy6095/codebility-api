@@ -30,7 +30,7 @@ async function _delete(id) {
 
 async function create(params) {
     // validate
-    if (await db.Director.findOne({ name: params.firstName })) {
+    if (await db.Director.findOne({ firstName: params.firstName })) {
         throw 'Director "' + params.firstName + '" is already there';
     }
     const director = new db.Director(params);   

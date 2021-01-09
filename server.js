@@ -16,9 +16,9 @@ app.use(morgan('tiny'));
 app.use(cors({ origin: (origin, callback) => callback(null, true), credentials: true }));
 
 // api routes
-app.use('/accounts', require('./accounts/accounts.controller'));
-app.use('/languages', require('./languages/languages.controller'));
-app.use('/directors', require('./directors/directors.controller'));
+app.use('/api/v1/accounts', require('./accounts/accounts.controller'));
+app.use('/api/v1/languages', require('./languages/languages.controller'));
+app.use('/api/v1/directors', require('./directors/directors.controller'));
 app.use('/api/v1/music-directors', require('./music-directors/music-directors.controller'));
 
 // swagger docs route

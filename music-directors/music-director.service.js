@@ -30,7 +30,7 @@ async function _delete(id) {
 
 async function create(params) {
     // validate
-    if (await db.MusicDirector.findOne({ name: params.firstName })) {
+    if (await db.MusicDirector.findOne({ firstName: params.firstName })) {
         throw 'Music Director "' + params.firstName + '" is already there';
     }
     const director = new db.MusicDirector(params);   
