@@ -32,9 +32,9 @@ async function create(params) {
     // validate
     if (await db.Movie.findOne({ name: params.name })) {
         throw 'Movie "' + params.name + '" is already there';
-    } else if(await db.Director.count({ _id: params.director }) <= 0) {
+    } else if(await db.Director.exists({ _id: params.director }) != true) {
         throw 'Invalid value for director field';
-    } else if(await db.MusicDirector.count({ _id: params.musicDirector }) <= 0) {
+    } else if(await db.MusicDirector.exists({ _id: params.musicDirector }) != true) {
         throw 'Invalid value for music director field';
     }
     const movie = new db.Movie(params);   
@@ -45,13 +45,14 @@ async function create(params) {
 
 async function update(id, params) {
     const movie = await getMovie(id);
+    console.log("db.Director.exists({ _id: params.director }): ",db.Director.exists({ _id: params.director }))
 
     // validate (if email was changed)
     if (params.name && movie.name !== params.name && await db.Movie.findOne({ name: params.name })) {
         throw 'Movie "' + params.email + '" is already present';
-    } else if(await db.Director.count({ _id: params.director }) <= 0) {
+    } else if(await db.Director.exists({ _id: params.director }) != true) {
         throw 'Invalid value for director field';
-    } else if(await db.MusicDirector.count({ _id: params.musicDirector }) <= 0) {
+    } else if(await db.MusicDirector.exists({ _id: params.musicDirector }) != true) {
         throw 'Invalid value for music director field';
     }
 
