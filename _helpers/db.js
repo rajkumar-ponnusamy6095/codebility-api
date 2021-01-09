@@ -8,6 +8,7 @@ module.exports = {
     Account: require('accounts/account.model'),
     Language: require('languages/language.model'),
     Director: require('directors/director.model'),
+    MusicDirector: require('music-directors/music-director.model'),
     RefreshToken: require('accounts/refresh-token.model'),
     isValidId
 };
