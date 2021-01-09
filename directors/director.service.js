@@ -23,7 +23,7 @@ async function getAll(limit, skip, sort, order, filter, search) {
     var sdir = order? order: 'desc';
     sortObject[stype] = sdir;
 
-    const directors = await db.Director.find({ firstName: regex }).skip(skip).limit(limit).sort(sortObject);
+    const directors = await db.Director.find({ $or: [{ firstName: regex }, {lastName: regex } ] }).skip(skip).limit(limit).sort(sortObject);
     let rows = directors.map(x => basicDetails(x));
     let totalRecords = await db.Director.countDocuments();
     let response = {
