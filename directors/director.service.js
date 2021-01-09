@@ -13,9 +13,24 @@ function basicDetails(director) {
     return { id, firstName, lastName, createdDate, updated };
 }
 
-async function getAll() {
-    const directors = await db.Director.find();
-    return directors.map(x => basicDetails(x));
+async function getAll(limit, skip, sort, order, filter, search) {
+    // for searching
+    var regex = new RegExp(search, 'i');   
+
+    // for sorting
+    var sortObject = {};
+    var stype = sort ? sort : 'createdDate';
+    var sdir = order? order: 'desc';
+    sortObject[stype] = sdir;
+
+    const directors = await db.Director.find({ firstName: regex }).skip(skip).limit(limit).sort(sortObject);
+    let rows = directors.map(x => basicDetails(x));
+    let totalRecords = await db.Director.countDocuments();
+    let response = {
+        rows: rows,
+        total: totalRecords
+    }
+    return response;
 }
 
 async function getById(id) {

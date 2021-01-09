@@ -33,7 +33,15 @@ function updateSchema(req, res, next) {
 }
 
 function getAll(req, res, next) {
-    directorService.getAll()
+    const limit = parseInt(req.query.limit) || 5; // Make sure to parse the limit to number
+    const skip = parseInt(req.query.skip) || 0;// Make sure to parse the skip to number
+    let sortBy = req.query.sortBy;
+    let order = req.query.order;
+    let search = req.query.search;
+    let filter = req.query.filter;
+
+    console.log("REQ:",req.query)
+    directorService.getAll(limit, skip, sortBy, order, filter, search)
         .then(directors => res.json(directors))
         .catch(next);
 }
