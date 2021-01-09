@@ -20,6 +20,7 @@ app.use('/api/v1/accounts', require('./accounts/accounts.controller'));
 app.use('/api/v1/languages', require('./languages/languages.controller'));
 app.use('/api/v1/directors', require('./directors/directors.controller'));
 app.use('/api/v1/music-directors', require('./music-directors/music-directors.controller'));
+app.use('/api/v1/movies', require('./movies/movies.controller'));
 
 // swagger docs route
 app.use('/api-docs', require('_helpers/swagger'));

@@ -9,6 +9,7 @@ module.exports = {
     Language: require('languages/language.model'),
     Director: require('directors/director.model'),
     MusicDirector: require('music-directors/music-director.model'),
+    Movie: require('movies/movie.model'),
     RefreshToken: require('accounts/refresh-token.model'),
     isValidId
 };
